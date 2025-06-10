@@ -68,7 +68,7 @@
 
             <div class="popup-header">
                 <h2>Submit to Community</h2>
-                <p>Let us know about the issues you're facing.</p>
+                <p>"Having trouble? Let us know. Got advices or ideas? We'd love to hear how we can make it better"</p>
             </div>
             <form id="submissionForm">
                 <div class="form-control">
@@ -127,6 +127,9 @@
             padding: 15px;
             border-bottom: 1px solid #222222;
             margin-bottom: 20px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+
         }
 
         .feed-header h2 {
@@ -213,6 +216,7 @@
             margin: 0 0 15px 50px;
             word-wrap: break-word;
             white-space: pre-wrap;
+            font-size:16px;
         }
 
         .post-actions {
@@ -400,7 +404,7 @@
                     
                 </div>
                 
-                <p class="post-description" style="font-size:16px; fofont-family:'inter',ont-weight:600; background-color:#1a1a1a; padding:5px 10px; width:fit-content; border-radius: 10px;">${post.title}</p>
+                <p class="post-description" style=" font-family:'inter',font-weight:700; background-color:#007aff; padding:12px 16px; width:fit-content; border-radius: 10px;">${post.title}</p>
                 <p class="post-description">${post.description}</p>
               
             `;
