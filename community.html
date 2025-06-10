@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><link ink rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <body>
+        <div class="body-container">
+        <header style="margin-bottom: 10px;">
+            <div class="logo">
+                <a href="/">FlipON</a>
+            </div>
+            <nav class="menu">
+            
+                <a href="/">Home</a>
+                <a href="#features">Features</a>
+                <a href="#cta">Downloads</a>
+                <a href="#cta">FAQ</a>
+                <a href="#footer">Contact</a>
+                <a href="community.html">Community</a>
+            </nav>
+    
+                <button class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </header>
+    
+        <section class="notifications"> 
+    
+            <button>Nowww Laaauuunching</button>
+    
+            <p>The mobile application is currently in the testing phase and is expected to be released before the end of the year. Development for Linux and macOS versions is also in progress.</p>
+    
+            <span>Read more <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M665.08-450H180v-60h485.08L437.23-737.85 480-780l300 300-300 300-42.77-42.15L665.08-450Z"/></svg></span>
+        </section>
+
+    <div class="sidebar">
+        <nav class="sidebar-menu">
+            <a href="/">Home</a>
+            <a href="#features">Features</a>
+            <a href="#cta">Downloads</a>
+            <a href="#faq">FAQ</a>
+            <a href="#footer">Contact</a>
+            <a href="community.html">Community</a>
+           
+        </nav>
+        <div class="sidebar-contact">
+            <h3>Contact</h3>
+            <a href="mailto:langamitch69@gmail.com">langamitch69@gmail.com</a>
+            <a href="tel:+27792444395">+27 79 244 4395</a>
+            <div class="sidebar-social">
+                  <a href=https://www.instagram.com/wandile_010/profilecard/?igsh=MTJycXBtMmJsOHB1bA==" target="_blank">Instagram</a>
+                
+                
+            </div>
+        </div>
+    </div>
+    <div class="popup-overlay" id="popupOverlay">
+        <button class="popup-close" id="closePopup" aria-label="Close popup">&times;</button>
+        <div class="popup">
+
+            <div class="popup-header">
+                <h2>Submit to Community</h2>
+                <p>Let us know about the issues you're facing.</p>
+            </div>
+            <form id="submissionForm">
+                <div class="form-control">
+                    <label for="name">Name, Organization, Business, etc:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter name or organization" required>
+                </div>
+                
+                
+                <div class="form-control">
+                    
+                    <input type="text" id="title" name="title" placeholder="Title" >
+                </div>
+                
+                <div class="form-control">
+                    <label for="description">Issue Description:</label>
+                    <textarea id="description" name="description" placeholder="Describe the issue in detail..." required></textarea>
+                </div>
+            
+
+
+                <div class="form-control" style="color: rgb(149, 149, 149); text-align: left;">
+                    <!-- <label for="imageUpload" style="color: black; text-align: left; margin-bottom: 10px;">Attach Image (optional):</label>
+                    <input type="file" id="imageUpload" name="imageUpload" accept="image/*" multiple>
+                    <p id="imageError" style="color: red; display: none;">You can upload up to 3 images.</p> -->
+                </div>
+            
+                <button type="submit" class="submit-btn">Submit to community</button>
+                <div class="success-message" id="successMessage"></div>
+            </form>
+            
+
+        </div>
+    </div>
+    <!--<button class="contact-button trigger-button" id="openPopup">Submit to Community</button>-->
+    <button  class="get-now contact-button trigger-button" " id="openPopup">Add post <span class="icon-circle"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M665.08-450H180v-60h485.08L437.23-737.85 480-780l300 300-300 300-42.77-42.15L665.08-450Z"/></svg> </span></button>
+
+    <!-- Community Feed Section -->
+    <div class="community-feed">
+        <div class="feed-header">
+            <h2>Community Posts</h2>
+        </div>
+        <div id="postsContainer" class="posts-container">
+            <!-- Posts will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <style>
+        .community-feed {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0px;
+        }
+
+        .feed-header {
+            font-family: "Square Sans Mono VF", "Square Sans Mono", ui-monospace, menlo, "Courier New", monospace;
+            padding: 15px;
+            border-bottom: 1px solid #222222;
+            margin-bottom: 20px;
+        }
+
+        .feed-header h2 {
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .posts-container {
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        .post-card {
+            background: #000000;
+            color: #e0e0e0;
+            border-bottom: 1px solid #555;
+            padding: 15px;
+           
+            transition: background 0.2s ease-in-out;
+        }
+
+        .post-card:hover {
+            background: #2e2e2e;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .profile-picture {
+            width: 40px;
+            height: 40px;
+            background-color: #555;
+            border-radius: 50%;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        .profile-picture img {
+            width: 40px;
+            height: 40px;
+            background-color: #555;
+            border-radius: 50%;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        .post-name {
+            font-weight: bold;
+            color: #e0e0e0;
+            margin: 0;
+            font-size: 1.1em;
+            margin-right: 8px;
+        }
+        .post-time {
+            color: #999;
+            font-size: 0.9em;
+            margin-top: 0;
+        }
+
+        .more-options {
+            color: #999;
+            font-size: 1.5em;
+            cursor: pointer;
+            margin-left: auto;
+        }
+
+        .post-title {
+            display: none;
+        }
+
+        .post-description {
+            color: #e0e0e0;
+            line-height: 1.5;
+            margin: 0 0 15px 50px;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+
+        .post-actions {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-top: 10px;
+            border-top: 1px solid #333;
+            margin-left: 50px;
+        }
+
+        .action-item {
+            color: #999;
+            font-size: 1em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: color 0.2s;
+        }
+
+        .action-item:hover {
+            color: #1DA1F2;
+        }
+
+        .action-item .icon {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+    </style>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+        // import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-storage.js";
+
+        const firebaseConfig = {
+    apiKey: "AIzaSyA-leTOOlg9lIgBgqMYCoVRqV2gkRKDGGQ",
+    authDomain: "jobsapp-23a0f.firebaseapp.com",
+    projectId: "jobsapp-23a0f",
+    storageBucket: "jobsapp-23a0f.firebasestorage.app",
+    messagingSenderId: "956724263847",
+    appId: "1:956724263847:web:b3548e955bc1597cbc1482"
+  };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        // const storage = getStorage(app);
+
+        const openPopupBtn = document.getElementById('openPopup');
+        const popupOverlay = document.getElementById('popupOverlay');
+        const submissionForm = document.getElementById('submissionForm');
+        const closePopupBtn = document.getElementById('closePopup');
+
+        openPopupBtn.addEventListener('click', () => {
+            popupOverlay.style.display = 'flex';
+        });
+
+        popupOverlay.addEventListener('click', (e) => {
+            if (e.target === popupOverlay) {
+                popupOverlay.style.display = 'none';
+            }
+        });
+
+        closePopupBtn.addEventListener('click', () => {
+            popupOverlay.style.display = 'none';
+        });
+
+        submissionForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = submissionForm.querySelector('.submit-btn');
+            const successMessage = document.getElementById('successMessage');
+            submitBtn.disabled = true;
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting to community...';
+
+            try {
+                const name = document.getElementById('name').value;
+                const title = document.getElementById('title').value;
+                const description = document.getElementById('description').value;
+                // const images = document.getElementById('imageUpload').files;
+
+                // if (images.length > 3) {
+                //     document.getElementById('imageError').style.display = 'block';
+                //     submitBtn.textContent = originalText;
+                //     submitBtn.disabled = false;
+                //     return;
+                // }
+
+                // Upload images and get their URLs
+                // const imageUrls = [];
+                // for (let i = 0; i < images.length; i++) {
+                //     const imageFile = images[i];
+                //     const storageRef = ref(storage, `community/${Date.now()}_${imageFile.name}`);
+                //     await uploadBytes(storageRef, imageFile);
+                //     const downloadURL = await getDownloadURL(storageRef);
+                //     imageUrls.push(downloadURL);
+                // }
+
+                const docRef = await addDoc(collection(db, "community"), {
+                    name,
+                    title,
+                    description,
+                    // imageUrls,
+                    timestamp: Date.now()
+                });
+
+                // Hide form elements
+                submissionForm.querySelectorAll('.form-control').forEach(el => el.style.display = 'none');
+                submitBtn.style.display = 'none';
+                
+                // Show success message
+                successMessage.style.display = 'block';
+                successMessage.style.color = '#28a745';
+                successMessage.style.fontSize = '16px';
+                successMessage.style.margin = '15px 0';
+                successMessage.style.textAlign = 'center';
+                successMessage.style.fontWeight = '500';
+                successMessage.textContent = 'Woohoo! Your post is live!.';
+                
+                setTimeout(() => {
+                    popupOverlay.style.display = 'none';
+                    submissionForm.reset();
+                    // Reset form display
+                    submissionForm.querySelectorAll('.form-control').forEach(el => el.style.display = 'block');
+                    submitBtn.style.display = 'block';
+                    successMessage.style.display = 'none';
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, 3000);
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                alert('Error submitting form: ' + error.message);
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Function to format timestamp
+        function formatTime(timestamp) {
+            const date = new Date(timestamp);
+            const now = new Date();
+            const diff = now - date;
+            
+            // Less than 24 hours
+            if (diff < 24 * 60 * 60 * 1000) {
+                const hours = Math.floor(diff / (60 * 60 * 1000));
+                if (hours === 0) {
+                    const minutes = Math.floor(diff / (60 * 1000));
+                    return `${minutes}m ago`;
+                }
+                return `${hours}h ago`;
+            }
+            
+            // Less than 7 days
+            if (diff < 7 * 24 * 60 * 60 * 1000) {
+                const days = Math.floor(diff / (24 * 60 * 60 * 1000));
+                return `${days}d ago`;
+            }
+            
+            // Otherwise return full date
+            return date.toLocaleDateString();
+        }
+
+        // Function to create post card
+        function createPostCard(post) {
+            const card = document.createElement('div');
+            card.className = 'post-card';
+            
+            card.innerHTML = `
+                <div class="post-header">
+                    <div class="profile-picture"> <img src="live/images/profile.jpg" alt="profile picture" >
+ </div>
+                    <div class="post-meta">
+                        <h3 class="post-name">${post.name}</h3>
+                        <span class="post-time">${formatTime(post.timestamp)}</span>
+                    </div>
+                    
+                </div>
+                
+                <p class="post-description" style="font-size:16px; fofont-family:'inter',ont-weight:600; background-color:#1a1a1a; padding:5px 10px; width:fit-content; border-radius: 10px;">${post.title}</p>
+                <p class="post-description">${post.description}</p>
+              
+            `;
+            
+            return card;
+        }
+
+        // Function to load posts
+        async function loadPosts() {
+            const postsContainer = document.getElementById('postsContainer');
+            postsContainer.innerHTML = '<div class="loading">Loading posts...</div>';
+
+            try {
+                const q = query(collection(db, "community"), orderBy("timestamp", "desc"));
+                const querySnapshot = await getDocs(q);
+                
+                postsContainer.innerHTML = '';
+                
+                querySnapshot.forEach((doc) => {
+                    const post = doc.data();
+                    const postCard = createPostCard(post);
+                    postsContainer.appendChild(postCard);
+                });
+
+                if (querySnapshot.empty) {
+                    postsContainer.innerHTML = '<div class="loading">No posts yet. Be the first to post!</div>';
+                }
+            } catch (error) {
+                console.error("Error loading posts:", error);
+                postsContainer.innerHTML = '<div class="loading">Error loading posts. Please try again later.</div>';
+            }
+        }
+
+        // Load posts when page loads
+        loadPosts();
+    </script></div>
+</body>
+</html>
