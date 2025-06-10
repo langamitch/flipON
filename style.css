@@ -347,6 +347,7 @@
     .community-feed{
         border: 1px solid #333;
         padding: 1000px;
+        border-radius: 8px;
     }
     @media (max-width: 768px) {
         .body-container{
