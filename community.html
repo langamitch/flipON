@@ -16,12 +16,12 @@
             </div>
             <nav class="menu">
             
-                <a href="/">Home</a>
-                <a href="#features">Features</a>
-                <a href="#cta">Downloads</a>
-                <a href="#cta">FAQ</a>
-                <a href="#footer">Contact</a>
-                <a href="community.html">Community</a>
+                <a href="index.html">Home</a>
+                <a href="index.html#features">Features</a>
+                <a href="index.html#cta">Downloads</a>
+                <a href="index.html#cta">FAQ</a>
+                <a href="index.html#footer">Contact</a>
+                <a href="#">Community</a>
             </nav>
     
                 <button class="menu-toggle">
@@ -42,11 +42,11 @@
 
     <div class="sidebar">
         <nav class="sidebar-menu">
-            <a href="/">Home</a>
-            <a href="#features">Features</a>
-            <a href="#cta">Downloads</a>
-            <a href="#faq">FAQ</a>
-            <a href="#footer">Contact</a>
+            <a href="index.html">Home</a>
+                <a href="index.html#features">Features</a>
+                <a href="index.html#cta">Downloads</a>
+                <a href="index.html#cta">FAQ</a>
+                <a href="index.html#footer">Contact</a>
             <a href="community.html">Community</a>
            
         </nav>
@@ -431,6 +431,67 @@
 
         // Load posts when page loads
         loadPosts();
+    </script>     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fade in elements
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            // Intersection Observer for fade-in elements
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Add slight delay for initial elements
+            setTimeout(() => {
+                document.querySelector('.intro').classList.add('visible');
+            }, 200);
+            
+            // Stagger project animations
+            const projects = document.querySelectorAll('.project');
+            projects.forEach((project, index) => {
+                setTimeout(() => {
+                    project.classList.add('visible');
+                }, 400 + (index * 150));
+            });
+            
+            // Sidebar toggle functionality
+            const menuToggle = document.querySelector('.menu-toggle');
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.querySelector('.overlay');
+            
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                sidebar.classList.toggle('active');
+                overlay.classList.toggle('active');
+                document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
+            });
+            
+            overlay.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                sidebar.classList.remove('active');
+                this.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            // Close sidebar on window resize if it's open and window is large
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768 && sidebar.classList.contains('active')) {
+                    menuToggle.classList.remove('active');
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
     </script></div>
 </body>
 </html>
