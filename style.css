@@ -454,4 +454,35 @@
         line-height: 1.5;
         padding: 0 10px;
     }
+
+    .reactions{
+        margin:  0px 0px 14px 50px;
+    }
+
+    .reactions button{
+        background: none;
+        margin-right: 15px;
+        padding: 1px 5px;
+        display: inline-flex;
+        justify-content: center;
+        border: 1px solid #888;
+        border-radius: 6px;
+        
+    }
+
+    .reactions button svg{
+        width: 20px;
+        margin-right: 5px;
+        fill: #888;
+    }
+    .reactions button span{
+        align-self: center;
+        font-size: 13px;
+        color: #888;
+    }
+
+    .reactions button svg, .reactions button span{
+        display: flex;
+        flex-direction: column;
+    }
     
