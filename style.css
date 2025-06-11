@@ -457,6 +457,8 @@
 
     .reactions{
         margin:  0px 0px 14px 50px;
+        width:100%;
+        justify-content: spaces-between;
     }
 
     .reactions button{
